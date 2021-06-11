@@ -13,6 +13,9 @@ define pepe = Character ("Pepe", who_color="0520bf", what_color="037c10")
 
 define web = Character("", kind = nvl)
 
+define poster = Character("", kind = nvl)
+
+define tim = Character("Tim", who_color="fcfcfc", what_color="fcfcfc")
 # The game starts here.
 
 label start:
@@ -256,7 +259,94 @@ label start:
 
     label phishing4_done:
 
-    
+    scene bg classroom
+
+    "*Ding dong* class is over and it's now time for lunch"
+
+    kyle "Hey Tim, do you wanna grab Subway for lunch?"
+
+    tim "Sure! I'm starving."
+
+    scene bg tosubway
+
+    tim "Hey have you thought about working this summer? Maybe your dad could give you a job."
+
+    kyle "Oh no I haven't really thought about it."
+
+    "X Æ A-12 and Tim pass a bus stop with a poster"
+
+    show qr poster:
+        xalign 0.5
+        yalign 0.5
+
+    tim "Yo, look at this poster! Didn’t you turn 16 today? Happy birthday by the way. But hey, you should apply to this. Just scan the code with your new phone."
+
+    kyle "Thanks! Yeah okay, I wonder what type of job this is. It doesn’t say much on the poster."
+
+    "X Æ A-12 scans the QR code and a URL opens up"
+
+    kyle "I can't lie this is giving me serious sus vibes. Looks like they spelt 'experience' and 'eligibility' wrong and there's no description of the job."
+
+    tim "Really? You seemed like you really wanted some money for a new Xbox series X."
+
+    "Click the link?"
+    menu:
+        "Yes.":
+            jump qrlink_yes
+        "No.":
+            jump qrlink_no
+
+    label qrlink_yes:
+        $ qrlink = 1
+        "As X Æ A-12’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
+        kyle "What’s going on, my phone is frozen! I can’t do anything."
+        tim "Wait for sometime bro, hopefully it gets back to normal."
+        kyle "RATS!!!!! All my apps, pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
+        "X Æ A-12 rips the sign down and throws it in the trash, so that nobody else gets tricked by this suspicious QR code."
+        jump qrlink_done
+
+    label qrlink_no:
+        $ qrlink = 0
+        kyle "This link is probably a virus. It doesn’t even use a common domain like .ca, .net, or .org. I’m not clicking this link."
+        jump qrlink_done
+
+    label qrlink_done:
+
+    scene bg tosubway
+
+    scene bg black with dissolve
+
+    "X Æ A-12 returns to class after lunch"
+
+    scene bg classroom with dissolve
+
+    jeff "Alright, class. We’re going to run through a research assignment. I’m going to need everyone to download MichaelScott Word. Open up your laptops and search ‘MichaelScott Word download’ in SpaceNet and click the first link."
+
+    "X Æ A-12 searches for MichaelScott Word download and clicks the first link. An execution downloads and he opens it. The file asks,
+    “Which folder location would you like to save this application to?”"
+
+    menu:
+        "/harambee/admin/…":
+            jump folder1
+        "/harambee/students/XÆA-12/":
+            jump folder2
+        "/harambee/Program Files/…":
+            jump folder1
+        "/harambee/MSWin/…":
+            jump folder1
+
+    label folder1:
+        $ folder = 1
+        "USER VIOLATION ERROR: User does not have permission to write to this folder"
+        jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+
+    label folder2:
+        $ folder = 2
+        "Software download complete, run MichaelScott Word?"
+        jeff "Mr. Bezos says, “Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+
+    jeff "Alright students, you’re going to be researching how crypto works and writing about it in…"
+
 
     # This ends the game.
 

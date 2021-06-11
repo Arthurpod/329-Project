@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 297, in script
+    jump qrlink_no
+ScriptError: could not find label 'qrlink_no'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 297, in script
+    jump qrlink_no
+  File "renpy/ast.py", line 1711, in execute
+    rv = renpy.game.script.lookup(target)
+  File "renpy/script.py", line 910, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'qrlink_no'.
+
+Windows-10-10.0.19041
+Ren'Py 7.4.4.1439
+InfoSecurityProject 1.0
+Fri Jun 11 02:45:45 2021
