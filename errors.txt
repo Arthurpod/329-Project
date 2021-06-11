@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 348: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        jeff "Alright students, you’re going to be researching how crypto works and writing about it in…
+File "game/script.rpy", line 469: Menu does not contain any choices.
+    menu:
+         ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Fri Jun 11 03:11:44 2021
+Fri Jun 11 16:13:19 2021

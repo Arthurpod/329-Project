@@ -338,14 +338,140 @@ label start:
     label folder1:
         $ folder = 1
         "USER VIOLATION ERROR: User does not have permission to write to this folder"
-        jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+        jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights."
+        jeff "Meaning you can read, write and execute all files in your own folder."
 
     label folder2:
         $ folder = 2
         "Software download complete, run MichaelScott Word?"
-        jeff "Mr. Bezos says, “Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+        jeff "Mr. Bezos says, “Class, make sure you select the proper folder."
+        jeff "Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights."
+        jeff "Meaning you can read, write and execute all files in your own folder."
 
     jeff "Alright students, you’re going to be researching how crypto works and writing about it in…"
+
+    "*Ding dong* Class is done for today"
+
+    kyle "Alright! Finally time to go home."
+
+    scene bg outside
+
+    "On the way home, X Æ A-12 finds a USB stick on the sidewalk"
+
+    kyle "Sweet! Free USB drive. This thing is 128GB, sick!"
+
+    menu:
+        "Pick it up":
+            jump usb1
+        "Leave it behind":
+            jump usb2
+
+    label usb1:
+        $ usb = 1
+        "X Æ A-12 plugs in the usb on his SpaceBook Pro at home, and now a suspicious file is installed on his PC. Apparently it was a virus"
+        jump usbdone
+
+    label usb2:
+        $ usb = 2
+        "But it might have been a virus or something on it. Someone wouldn’t just drop a USB stick that big. I’ll just ignore it"
+        jump usbdone
+
+    label usbdone:
+
+    show bg black with dissolve
+    "The next day"
+
+    show bg classroom
+
+    jeff "Good morning class! Today I want to teach you how to encrypt messages."
+    jeff "Have any of you seen the Martian? Do you remember the scene where Matt Damon’s character communicates with NASA using ASCII symbols. We are going to do the same by converting your names to binary."
+    jeff "I want you to convert your name into binary. Each letter is eight bits (either a 0 or 1)"
+    jeff "X Æ A-12, you can just spell “KYLE” for simplicity."
+
+    kyle "Thanks Mr. Bezos."
+
+    show ascii:
+        xalign 0.5
+        yalign 0.0
+
+    "Spell KYLE in binary"
+
+    label ascii_tryagain:
+
+    menu:
+        "01000101 01011001 01011010 01001001":
+            jump ascii1
+        "01001011 01011001 01001100 01000101":
+            jump asciidone
+        "10010101 10101111 00010101 11101010":
+            jump ascii1
+        "01010100 01000001 01000011 01001111":
+            jump ascii1
+
+    label ascii1:
+        "That answer is incorrect"
+        jump ascii_tryagain
+
+    label asciidone:
+
+    jeff "Well done class! You’ve completed your introduction to ASCII characters. Now, we are going to take a step further and add an element of encryption."
+    jeff "To do this we will use the following the key: 01001011"
+    jeff "Now, at each position of a letter, convert the bit using an XOR gate. The logic gate looks like the following:"
+
+    show xor:
+        xalign 0.5
+        yalign 0.0
+
+    "Insert Question Here"
+
+    hide ascii
+    hide xor
+
+    jeff "Well done class! You’ve completed your introduction to ASCII characters. Now, we are going to take a step further and add an element of encryption."
+
+    show bg black with dissolve
+
+    show bg home
+
+    "After school, X Æ A-12 goes home and decides to work o his homework. While trying to learn how to solve an algebra problem from a math website, X Æ A-12 gets a pop up ad."
+
+    show popup
+
+    "Should X Æ A-12 click on the prize and follow instructions?"
+
+    menu:
+        "Yes":
+            jump popup1
+        "No":
+            jump popup2
+
+    label popup1:
+        $ popup = 1
+        "The pop up ad was a scam and a potentially unwanted application PUA is downloaded on Kyle’s laptop"
+        kyle "What the heck did just happen. An application is installed? Wasn’t it supposed to give away a prize?"
+        "The application could now possess a threat of losing the sensitive private information and identity theft on Kyle’s laptop "
+        jump popupdone
+
+    label popup2:
+        $ popup = 2
+        "X Æ A-12 does not click on the prize button"
+        kyle "I think I should not click on the prize choose button as it seems fishy that I made the 5-billionth search on the Tesla browser."
+        kyle "Also it appears weird that this math website is notifying me about my searches rather than the browser itself."
+        kyle "Aha! seems suspicious and yes I remember last month Mr. Bezos informed the class to not click on any links and ads which promise unbelievable and impractical benefits/gifts, since they can be a scam."
+        jump popupdone
+
+    label popupdone:
+
+    kyle "Hmmm! This could be a great save from a spam. Well, what should I do to avoid such pop up ads which seem to be a scam, so that my PC should not be at a risk?"
+
+    "What should X Æ A-12 do to avoid pop up ad scams and the installation of unwanted applications on his PC?"
+
+    #menu:
+    #    "Do not click on suspicious and untrustworthy links and deceptive websites."
+    #    "Enable adblock to block pop-ups when the suspicious ads are noticed."
+    #    "Regularly monitor the applications installed on your computer."
+    #    "Enable Anti-malware and Anti-virus software to check for malware."
+
 
 
     # This ends the game.
