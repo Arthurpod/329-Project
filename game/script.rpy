@@ -44,7 +44,7 @@ label start:
     kyle "Thanks mom! Where is dad?"
 
     show mom base
-    grimes "I'm sorry, darling, your farther is away on a business meeting"
+    grimes "I'm sorry, darling, your father is away on a business meeting"
     grimes "He said it was very important, he's going to revolutionize DogeCoin today."
     grimes "But we got you this birthday present!"
     "She hands Kyle a wrapped box."
@@ -337,6 +337,7 @@ label start:
     "Kyle follows instructions. An execution downloads and he opens it. The file asks,"
     "Which folder location would you like to save this application to?"
 
+label foldertry:
     menu:
         "/harambee/admin/…":
             jump folder1
@@ -353,16 +354,14 @@ label start:
         "USER VIOLATION ERROR: User does not have permission to write to this folder"
         jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students."
         jeff "Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
-        jump folder_done
+        jump foldertry
 
     label folder2:
         $ folder = 2
         "Software download complete, run MichaelScott Word?"
         jeff "Mr. Bezos says, “Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives"
         jeff "read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
-        jump folder_done
 
-    label folder_done:
 
     jeff "Alright students, you’re going to be researching how crypto works and writing about it in…"
 
@@ -413,7 +412,7 @@ label start:
 
     show teacher base with dissolve
     jeff "Good morning class! Today I want to teach you how to encrypt messages. Have any of you seen The Martian?"
-    jeff "In one scene, Mark communicates with NASA using ASCII symbols. We are going to do the same by converting your names to binary."
+    jeff "In one scene, Matt Damon communicates with NASA using ASCII symbols. We are going to do the same by converting your names to binary."
     jeff "Binary uses digits called bits which can either be a 0 or a 1. Each letter in your name will be converted to Hexadecimal or Hex code according to the chart I pass out."
     jeff "Hex numbers can then be convereted into 4 bits each, so every letter in your name will be converted to 8 bits of binary."
     jeff "You can convert hex to binary manually, or by using a website to calculate your math for you."
@@ -461,13 +460,19 @@ label start:
         "Correct!"
         jump ascii_done
     label ascii_2:
-        "Incorrect"
+        "Incorrect."
+        "Hint: when you XOR bits if the bits have different values the result is 1. Eg 1 XOR 0 = 1"
+        "Hint: when you XOR bits if the bits have the same value the result is 0. Eg 1 XOR 1 = 0"
         jump ascii_start
     label ascii_3:
-        "Incorrect!"
+        "Incorrect."
+        "Hint: when you XOR bits if the bits have different values the result is 1. Eg 1 XOR 0 = 1"
+        "Hint: when you XOR bits if the bits have the same value the result is 0. Eg 1 XOR 1 = 0"
         jump ascii_start
     label ascii_4:
         "Incorrect!"
+        "Hint: when you XOR bits if the bits have different values the result is 1. Eg 1 XOR 0 = 1"
+        "Hint: when you XOR bits if the bits have the same value the result is 0. Eg 0 XOR 0 = 0"
         jump ascii_start
 
     label ascii_done:
@@ -527,7 +532,99 @@ label start:
     label popad_allabove:
         "The best ways to avoid pop-ups are to disable them on your browser. Having an anti-virus software will help protect your computer from suspicious downloads as well, and staying on trustworthy websites will keep you even safer."
 
+    show bg black with dissolve
     "Having had a long week of school, Kyle is ready for the weekend. He goes to bed thinking about how much he learned about malware and security."
+
+    # Dream/Ending section
+
+    show dream with dissolve
+    show shadow kyle
+    $ overall_score = 0
+
+    if q1 == 1:
+        kyle "I chose 'Password1' for my new Spacenet account password."
+        kyle "Sure it's easy to remember but this password is not at all secure."
+        kyle "I should definitely change it when I get the chance."
+
+    if q1 == 2:
+        kyle "I chose 'P@55w0rd' for my new Spacenet account password."
+        kyle "I basically chose the word 'Password' but in the l33t spelling, giving it a symbol and some numbers."
+        kyle "While this password is easy to remember it's unsecure since it is too short and is based on the word 'Password.'"
+        kyle "I should definitely change it when I get the chance."
+
+    if q1 == 3:
+        kyle "I chose 'mKxA3a12!' for my new Spacenet account password."
+        kyle "This password is secure but it's hard to memorize. But it might not be much of a problem"
+        kyle "I could store this password by writing it down somewhere or by using a password manager."
+        kyle "But then I also would have to make sure that the password manager is secure and I would need to remember that password for the manager itself."
+        kyle "maybe I could change my Spacenet account password later on to one that I can remember easier."
+
+    if q1 == 4:
+        kyle "I chose 'Musky@Melon05' for my new Spacenet account password."
+        kyle "This password is easy to memorize and is very secure."
+        kyle "Yup i'm going to keep this password."
+
+    "A good password is longer than 8 characters, has upper case and lowercase letters, has a few numbers and symbols, and is easy to remember."
+    "You can check your password strength using websites like https://howsecureismypassword.net/"
+
+    kyle "I remember getting some weird emails."
+    if phishing0 = 0:
+        show email phishing1:
+            xalign 0.5
+            yalign 0.0
+        kyle "Oh right remember this email. It didn't seem suspicious at the time but looking at it again something does seem fishy."
+        kyle "The google drive link uses a fake URL that isn't actually used by google."
+        kyle "I shouldn't click on the link."
+        hide email phishing1
+
+    if phishing2 = 0:
+        show email phishing2:
+            xalign 0.5
+            yalign 0.0
+        kyle "This email I got earlier didn't seem suspicious but now that I look at it something is off."
+        kyle "The URL has a weird domain. The word Fax isn't even spelled right."
+        hide email phishing2
+
+    if phishing3 = 0:
+        show email phishing3:
+            xalign 0.5
+            yalign 0.0
+        kyle "I was really curious about this email. Looking at it again it uses a weird email address."
+        kyle "Plus the link goes to a website called sytez.net which is suspicious."
+        kyle "As tempting as it is I should not click on the link."
+        hide email phishing3
+
+    if phishing4 = 1:
+        show email legit1:
+            xalign 0.5
+            yalign 0.0
+        kyle "I thought this email was suspicious but maybe I was overly cautious."
+        kyle "All the links lead to dropbox.com and the email address is also the correct address used by Dropbox."
+        hide email phishing4
+
+    "Phishing emails are emails that pretend to be harmless or impersonate legitimate websites like google but actually link to harmful websites or scams."
+    "When you get emails remember to check the sender's email address to see if it is from a trusted email service. Don't open emails from people you do not know or are suspicious about."
+    "Make sure before clicking on links that they send you to legitimate trusted websites."
+    "Phishing emails and scams will sometimes have spelling errors."
+
+    kyle "With Tim I remember we ran across a poster on the way to subway."
+
+    if qrlink = 1:
+        show qr poster:
+            xalign 0.5
+            yalign 0.0
+        kyle "I remember that my phone froze when I followed the link the QR code gave me. That was definitely the wrong choice"
+
+    "QR codes often can hide malicious links. Do not scan a QR code from an untrusted source."
+    "If possible use a QR scanner that does not automatically send you to the link without your confirmation first. That way you can see if the link can be trusted yourself."
+
+    kyle "I passed by a USB on the way home from school that one time. Pretty decent size one too."
+
+    if usbFlag = 0:
+        kyle "I made the wrong decision picking up that usb"
+
+    "..."
+
 
 
     # This ends the game.
