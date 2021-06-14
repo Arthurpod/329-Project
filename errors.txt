@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 469: Menu does not contain any choices.
-    menu:
-         ^
+The label ascii_1 is defined twice, at
+  File "game/script.rpy", line 454 and
+  File "game/script.rpy", line 457.
+
+The label ascii_1 is defined twice, at
+  File "game/script.rpy", line 457 and
+  File "game/script.rpy", line 460.
+
+The label ascii_1 is defined twice, at
+  File "game/script.rpy", line 460 and
+  File "game/script.rpy", line 463.
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Fri Jun 11 16:13:19 2021
+Sun Jun 13 21:25:20 2021

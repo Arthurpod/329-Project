@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define kyle = Character("X Æ A-12", who_color="eb2c10", what_color="2890d1")
+define kyle = Character("Kyle", who_color="eb2c10", what_color="2890d1")
 
 define grimes = Character ("Mom", who_color="fce840", what_color="878785")
 
@@ -34,29 +34,30 @@ label start:
 
     # These display lines of dialogue.
 
-    "It’s May 30 2021 and X Æ A-12 Musk just woke up in dad’s $41M mansion."
+    "It’s May 30 2021 and Kyle Musk just woke up in dad’s $41M mansion."
     "Enter his mother."
     show kyle base at left with move
-    show isabelle base at right with move
+    show mom happy at right with move
 
-    grimes "Good morning X Æ A-12. Happy 16th birthday!"
+    grimes "Good morning Kyle. Happy 16th birthday!"
 
     kyle "Thanks mom! Where is dad?"
 
+    show mom base
     grimes "I'm sorry, darling, your farther is away on a business meeting"
     grimes "He said it was very important, he's going to revolutionize DogeCoin today."
     grimes "But we got you this birthday present!"
-    "She hands X Æ A-12 a wrapped box."
+    "She hands Kyle a wrapped box."
 
     kyle "Thanks mom!"
     "He opens the gift."
     kyle "Wow, a SpacePhone X! I wish dad were here too, but I guess DogeCoin is pretty important."
 
     grimes "You're welcome sweetheart, I hope you like your new phone! Why don't you turn it on and set up your account?"
-    hide isabelle base
+    hide mom base
 
-    "X Æ A-12 turns on his new SpacePhone X and is prompted to log in or create a new SpaceNet account to access his phone with."
-    "After entering the username MarsmanKyle, X Æ A-12 needs to enter a password."
+    "Kyle turns on his new SpacePhone X and is prompted to log in or create a new SpaceNet account to access his phone with."
+    "After entering the username MarsmanKyle, Kyle needs to enter a password."
     kyle "Alright, I've narrowed it down to 4 passwords, now I just need to figure out which one is best"
     "A good password is longer than 8 characters, has upper case and lowercase letters, has a few numbers and symbols, and is easy to remember."
     "Here are some links that can help you learn about how to make better passwords \n{a=https://password.kaspersky.com}Kaspersky Password Strength Checker{/a} \n{a=https://support.kaspersky.com/common/windows/3730}Kaspersky Strong Password Guidelines{/a}"
@@ -93,12 +94,17 @@ label start:
 
     label q1_done:
 
-    "Next X Æ A-12 needs to set up a password to unlock his SpacePhone X."
+    "Next Kyle needs to set up a password to unlock his SpacePhone X."
+    "There are four basic ways of authenticating a user."
+    "1, Something the user knows like a password or the answer to a security question.{p}2, Something the user has like a credit card or key"
+    "3, Physical characteristics of the user, such as fingerprint or voice pattern.{p}4, Something about the user’s context, their location, the time, devices in proximity."
+    "Cell phones often use physical characteristics or something the user knows, to authenticate."
+
     kyle "I can use a PIN, a password, or... {w} Wow! I can use gestures and pictures to unlock my phone."
     kyle "It even has a fingerprint scanner. I wonder which I should use."
-    "A PIN is a 4 digit code that X Æ A-12 needs to type into his phone to unlock it.{p}A password is like a PIN, except that it can be longer than 4 characters, and may include numbers, letters, or symbols."
-    "When using gestures or pictures to unlock the phone, X Æ A-12 will be shown a picture of his choice, or a grid of 9 dots, and he will have to trace a pattern with his finger."
-    "Fingerprint scanning is the simplest unlocking method, it allows X Æ A-12 to place a chosen finger on the scanner and his phone will unlock after sensing the correct finger."
+    "A PIN is a 4 digit code that Kyle needs to type into his phone to unlock it.{p}A password is like a PIN, except that it can be longer than 4 characters, and may include numbers, letters, or symbols."
+    "When using gestures or pictures to unlock the phone, Kyle will be shown a picture of his choice, or a grid of 9 dots, and he will have to trace a pattern with his finger."
+    "Fingerprint scanning is the simplest unlocking method, it allows Kyle to place a chosen finger on the scanner and his phone will unlock after sensing the correct finger."
 
     menu:
         "PIN":
@@ -122,12 +128,13 @@ label start:
 
     label q2a3:
         $ q2 = 3
-        kyle "A gesture will be easy to remember, but ."
+        kyle "A gesture will be easy to remember, but if someone looks over my shoulder, they'll know it and remember it. I better be careful where I unlock my phone."
         jump q2_done
 
     label q2a4:
         $ q2 = 4
-        kyle "This password is easy to remember and follows all the rules of creating a good password."
+        kyle "I won't need to remember anything if I use a fingerprint to unlock my phone. Nobody else but me will be able to unlock it, this is perfect!"
+        "Kyle taps his finger on the scanner a few times until the phone recognizes his fingerprint."
         jump q2_done
 
     label q2_done:
@@ -136,15 +143,16 @@ label start:
 
     scene bg black with dissolve
 
-    "The next day, X Æ A-12 goes to his school, Harambee High."
+    "The next day, Kyle goes to his school, Harambee High."
 
     scene bg classroom with dissolve
+    show teacher explaining
 
     jeff "Good morning class. Before we start today's lesson I want everyone to log in to their Harambee high CBE accounts."
     jeff "Our School's IT staff just implemented a new security protocol that requires all students to log in to their accounts with two-factor authentication."
     jeff "What this means is when you log in to your account on the school websites, you will have to input a code as well as your username and password. The code will come from an app on your phone which you will connect to your account."
 
-    show pepe base at right
+    show rei base at right
     pepe "Why are we doing this Mr. Bezos? This is just a big inconvenience!"
 
     jeff "Because this way, Pepe, even if someone has managed to get your ID and password,{p}they still can't log in to your school account."
@@ -155,9 +163,9 @@ label start:
 
     jeff "Exactly."
 
-    hide pepe base
+    hide rei base
 
-    "X Æ A-12 opens up his SpaceBook Pro and opens up the Tesla browser to log in. The website shows a screen reading:"
+    "Kyle opens up his SpaceBook Pro and opens up the Tesla browser to log in. The website shows a screen reading:"
 
     web "Welcome to Harambe High CBE Account Prefences.\nYou will be adding 2FA to your Harambe High CBE account. Please take the following steps:"
     web "1. Download the SpaceNet Authenticator app to begin."
@@ -165,11 +173,13 @@ label start:
     web "3. The authenticator will give you a code now. Input the code in the textbox below."
     nvl hide
 
-    "After successfully logging in with 2FA enabled, X Æ A-12 opens up his email and finds he has three unread emails. X Æ A-12 remembers that last week Mr. Bezos discussed the importance of email safety and determining if an email is phishing."
+    "After successfully logging in with 2FA enabled, Kyle opens up his email and finds he has three unread emails. Kyle remembers that last week Mr. Bezos discussed the importance of email safety and determining if an email is phishing."
 
     kyle "I remember what Mr. Bezos told us last week, phishing emails usually come from weird email addresses and usually have links to suspicious URLs in them."
     "Phishing emails pretend to be from a legitimate source, such as google, or your bank. They try to trick into thinking that you need to log in, but they provide a fake URL that will steal your info if you try to log in, or will download malware to your device."
     "You can test out this knowledge in Google's {a=https://phishingquiz.withgoogle.com/}phishing email quiz{/q}."
+
+    hide teacher talking
 
     show email phishing1:
         xalign 0.5
@@ -269,11 +279,13 @@ label start:
 
     scene bg tosubway
 
+    show kyle base at left
+    show tim base at right
     tim "Hey have you thought about working this summer? Maybe your dad could give you a job."
 
     kyle "Oh no I haven't really thought about it."
 
-    "X Æ A-12 and Tim pass a bus stop with a poster"
+    "Kyle and Tim pass a bus stop with a poster"
 
     show qr poster:
         xalign 0.5
@@ -283,7 +295,7 @@ label start:
 
     kyle "Thanks! Yeah okay, I wonder what type of job this is. It doesn’t say much on the poster."
 
-    "X Æ A-12 scans the QR code and a URL opens up"
+    "Kyle scans the QR code and a URL opens up"
 
     kyle "I can't lie this is giving me serious sus vibes. Looks like they spelt 'experience' and 'eligibility' wrong and there's no description of the job."
 
@@ -298,11 +310,11 @@ label start:
 
     label qrlink_yes:
         $ qrlink = 1
-        "As X Æ A-12’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
+        "As Kyle’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
         kyle "What’s going on, my phone is frozen! I can’t do anything."
         tim "Wait for sometime bro, hopefully it gets back to normal."
-        kyle "RATS!!!!! All my apps, pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
-        "X Æ A-12 rips the sign down and throws it in the trash, so that nobody else gets tricked by this suspicious QR code."
+        kyle "RATS!!!!! All my apps, and pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
+        "Kyle rips the sign down and throws it in the trash, so that nobody else gets tricked by this suspicious QR code."
         jump qrlink_done
 
     label qrlink_no:
@@ -316,162 +328,206 @@ label start:
 
     scene bg black with dissolve
 
-    "X Æ A-12 returns to class after lunch"
+    "Kyle returns to class after lunch"
 
     scene bg classroom with dissolve
 
     jeff "Alright, class. We’re going to run through a research assignment. I’m going to need everyone to download MichaelScott Word. Open up your laptops and search ‘MichaelScott Word download’ in SpaceNet and click the first link."
 
-    "X Æ A-12 searches for MichaelScott Word download and clicks the first link. An execution downloads and he opens it. The file asks,
-    “Which folder location would you like to save this application to?”"
+    "Kyle follows instructions. An execution downloads and he opens it. The file asks,"
+    "Which folder location would you like to save this application to?"
 
     menu:
         "/harambee/admin/…":
             jump folder1
-        "/harambee/students/XÆA-12/":
+        "/harambee/students/kylemusk/":
             jump folder2
         "/harambee/Program Files/…":
             jump folder1
         "/harambee/MSWin/…":
             jump folder1
 
+
     label folder1:
         $ folder = 1
         "USER VIOLATION ERROR: User does not have permission to write to this folder"
-        jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights."
-        jeff "Meaning you can read, write and execute all files in your own folder."
+        jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students."
+        jeff "Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+        jump folder_done
 
     label folder2:
         $ folder = 2
         "Software download complete, run MichaelScott Word?"
-        jeff "Mr. Bezos says, “Class, make sure you select the proper folder."
-        jeff "Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students. Your specific folder however gives you full permission rights."
-        jeff "Meaning you can read, write and execute all files in your own folder."
+        jeff "Mr. Bezos says, “Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives"
+        jeff "read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+        jump folder_done
+
+    label folder_done:
 
     jeff "Alright students, you’re going to be researching how crypto works and writing about it in…"
 
-    "*Ding dong* Class is done for today"
+    scene bg tosubway with dissolve
 
     kyle "Alright! Finally time to go home."
 
-    scene bg outside
+    "As he walks home, Kyle finds a USB stick on the  sidewalk"
 
-    "On the way home, X Æ A-12 finds a USB stick on the sidewalk"
-
-    kyle "Sweet! Free USB drive. This thing is 128GB, sick!"
+    kyle "Sweet!"
 
     menu:
         "Pick it up":
-            jump usb1
+            jump pickUSB
         "Leave it behind":
-            jump usb2
+            jump leaveUSB
 
-    label usb1:
-        $ usb = 1
-        "X Æ A-12 plugs in the usb on his SpaceBook Pro at home, and now a suspicious file is installed on his PC. Apparently it was a virus"
-        jump usbdone
+    label pickUSB:
+        scene bg bedroom with dissolve
+        "As soon as he arrives at home, Kyle plugs the USB into his SpaceBook Pro."
+        "There is a file on the USB drive."
+        menu:
+            "Execute it to see what it does.":
+                $ usbFlag = 0
+                "The laptop screen freezes for a bit, then it shuts off. Kyle can't tell just by looking, but a keylogger virus has installed itself."
+                "Keyloggers remember everything you type on your keyboard and send the information to an attacker who will use the data to obtain any passwords you may have typed."
+                "Kyle's credit card data could now be stolen if he were to buy something online using a credit card, or his accounts could be stolen."
+                jump usb_done
+            "Format the USB":
+                $ usbFlag = 1
+                kyle "This weird file is probably nothing interesting, besides it could be dangerous. I'll reformat the drive so that it will be completely empty."
+                "Kyle formats the drive. After waiting a little while, the USB drive is now completely empty and safe to re-use."
+                jump usb_done
+    label leaveUSB:
+        $ usbFlag = 2
+        kyle "I don't need a shady ground USB. It may have a virus on it. Why would somebody drop a perfectly good USB that's that big?"
+        "Kyle arrives at home."
+        scene bg bedroom with dissolve
+        jump usb_done
 
-    label usb2:
-        $ usb = 2
-        "But it might have been a virus or something on it. Someone wouldn’t just drop a USB stick that big. I’ll just ignore it"
-        jump usbdone
+    label usb_done:
 
-    label usbdone:
+    scene bg black with dissolve
 
-    show bg black with dissolve
-    "The next day"
+    "Kyle prepares for the next day."
 
-    show bg classroom
+    scene bg classroom with dissolve
 
-    jeff "Good morning class! Today I want to teach you how to encrypt messages."
-    jeff "Have any of you seen the Martian? Do you remember the scene where Matt Damon’s character communicates with NASA using ASCII symbols. We are going to do the same by converting your names to binary."
-    jeff "I want you to convert your name into binary. Each letter is eight bits (either a 0 or 1)"
-    jeff "X Æ A-12, you can just spell “KYLE” for simplicity."
+    show teacher base with dissolve
+    jeff "Good morning class! Today I want to teach you how to encrypt messages. Have any of you seen The Martian?"
+    jeff "In one scene, Mark communicates with NASA using ASCII symbols. We are going to do the same by converting your names to binary."
+    jeff "Binary uses digits called bits which can either be a 0 or a 1. Each letter in your name will be converted to Hexadecimal or Hex code according to the chart I pass out."
+    jeff "Hex numbers can then be convereted into 4 bits each, so every letter in your name will be converted to 8 bits of binary."
+    jeff "You can convert hex to binary manually, or by using a website to calculate your math for you."
+    "The Hex number system is like our decimal system that we use, only there are extra digits A B C D E and F to represent the numbers 10, 11, 12, 13, 14, and 15."
+    "In binary there are only the numbers 1 and 0 but which position they are in will tell you which power of 2 they represent."
+    "You can convert between Hex and Binary here {a=https://www.rapidtables.com/convert/number/hex-to-binary.html}at this link{/a}."
 
-    kyle "Thanks Mr. Bezos."
-
-    show ascii:
+    show hex chart:
+        yalign 0
         xalign 0.5
-        yalign 0.0
 
-    "Spell KYLE in binary"
+    kyle "So the uppercase K in my name is 4B in Hexadecimal, which is the number 4 concatenated with the number 11. 4 in binary is 0100 because the third place represents 2^2 which equals 4, and 11 in binary is 1011 because the fourth place represents 2^3 = 8,"
+    kyle "and the first and second place represent 2^1 = 2 and 2^0 = 1 for a grand total of 11."
+    kyle "That means lowercase Y converts to 79 in Hex which converts to 0111 1001 in Binary, lowercase L converts to 6C in Hex which converts to 0110 1100, and lowercase E converts to 65 in Hex and 0110 0101 in Binary."
+    kyle "If I put all that together, that means my name in Binary is 01001011 01111001 01101100 01100101. Pretty cool!"
 
-    label ascii_tryagain:
+    hide hex chart
+
+    jeff "Well done class! You've completed your introduction to ASCII characters. Now, we are going to take a step further and add an alement of encryption."
+    jeff "To do this we will use the following binary number as a key: 01001011."
+    jeff "Now, for each bit in your binary name and in the key, convert the two bits in each place into a new bit using an XOR operation. This table will show you how it works."
+
+    show xor chart:
+        yalign 0
+        xalign 0.5
+
+    jeff "XOR means Exclusive Or, which is a type of operation where you consider 2 values, and if at least 1 of them equals 1, then the equation equals 1"
+    jeff "But Exclusive Or also has an extra rule, if both values are equal to 1, then the expression is equal to 0."
+    jeff "So if the first bit in your binary name is 1 and the first bit in the key is 0, then the first bit of the new number you are generating, will be a 1."
+
+    label ascii_start:
+    "Using Kyle in binary, and the key that Mr. Bezos provided, XOR every bit in each number to create a new number.{p}Kyle: 01001011 01111001 01101100 01100101 {p}Key:  01001011 01001011 01001011 01001011"
 
     menu:
-        "01000101 01011001 01011010 01001001":
-            jump ascii1
-        "01001011 01011001 01001100 01000101":
-            jump asciidone
-        "10010101 10101111 00010101 11101010":
-            jump ascii1
-        "01010100 01000001 01000011 01001111":
-            jump ascii1
+        "00000000 00010000 00000110 00001110":
+            jump ascii_1
+        "11111111 11101111 11111001 11110001":
+            jump ascii_2
+        "10010101 10110110 10010111 1011110":
+            jump ascii_3
+        "01001011 01001001 01001000 01000001":
+            jump ascii_4
 
-    label ascii1:
-        "That answer is incorrect"
-        jump ascii_tryagain
+    label ascii_1:
+        "Correct!"
+        jump ascii_done
+    label ascii_2:
+        "Incorrect"
+        jump ascii_start
+    label ascii_3:
+        "Incorrect!"
+        jump ascii_start
+    label ascii_4:
+        "Incorrect!"
+        jump ascii_start
 
-    label asciidone:
+    label ascii_done:
+    hide xor chart
 
-    jeff "Well done class! You’ve completed your introduction to ASCII characters. Now, we are going to take a step further and add an element of encryption."
-    jeff "To do this we will use the following the key: 01001011"
-    jeff "Now, at each position of a letter, convert the bit using an XOR gate. The logic gate looks like the following:"
+    jeff "Great job, class. You have no encrypted your names."
 
-    show xor:
-        xalign 0.5
-        yalign 0.0
+    scene bg bedroom with dissolve
 
-    "Insert Question Here"
+    "After school, Kyle goes home. He decides to finish his homework that his math teacher Mr. Gates assigned. While trying to find resources to help him understand the subject, the math website he is on gives him a pop-up ad."
+    show pop ad
 
-    hide ascii
-    hide xor
-
-    jeff "Well done class! You’ve completed your introduction to ASCII characters. Now, we are going to take a step further and add an element of encryption."
-
-    show bg black with dissolve
-
-    show bg home
-
-    "After school, X Æ A-12 goes home and decides to work o his homework. While trying to learn how to solve an algebra problem from a math website, X Æ A-12 gets a pop up ad."
-
-    show popup
-
-    "Should X Æ A-12 click on the prize and follow instructions?"
+    kyle "What! I made the 5-billionth search on the Tesla browser? Damn! This lady won a Galaxy S10 and this guy won an Apple Watch 3. It would be a dream come true if I won an Apple Watch."
+    kyle "It says to choose one of the prizes from below."
+    "Click on the prize and follow the instructions?"
 
     menu:
         "Yes":
-            jump popup1
+            jump popad_yes
         "No":
-            jump popup2
+            jump popad_no
 
-    label popup1:
-        $ popup = 1
-        "The pop up ad was a scam and a potentially unwanted application PUA is downloaded on Kyle’s laptop"
-        kyle "What the heck did just happen. An application is installed? Wasn’t it supposed to give away a prize?"
-        "The application could now possess a threat of losing the sensitive private information and identity theft on Kyle’s laptop "
-        jump popupdone
+    label popad_yes:
+        $ popadFlag = 1
+        "The pop-up ad shows Kyle undesirable advertising, and downloads an app in the backgrounds which he notices."
+        kyle "What the heck just happened? An application installed itself, it supposed to give me a prize."
+        "The applciation installed could contain any kind of malware. It could destroy his computer, steal his data, and could spread "
+        "It could also use his computer as a way to access the rest of the computers in his home network, which means his family computers may also be damaged by the virus."
+        jump popad_done
 
-    label popup2:
-        $ popup = 2
-        "X Æ A-12 does not click on the prize button"
-        kyle "I think I should not click on the prize choose button as it seems fishy that I made the 5-billionth search on the Tesla browser."
-        kyle "Also it appears weird that this math website is notifying me about my searches rather than the browser itself."
-        kyle "Aha! seems suspicious and yes I remember last month Mr. Bezos informed the class to not click on any links and ads which promise unbelievable and impractical benefits/gifts, since they can be a scam."
-        jump popupdone
+    label popad_no:
+        $ popadFlag = 0
+        "I shouldn't click on the prize button, as it seems fishy that I made the 5-billionth search on the Tesla browser."
+        "It also seems weird that the math website is telling me that I am the Tesla Browser's 5-billionth search."
+        "I should look up a way to deal with these annoying advertisements."
+        jump popad_done
 
-    label popupdone:
+    label popad_done:
+    "What would be a good way to avoid being harmed by pop-up ads?"
+    menu:
+        "Do not click on suspicious and untrustworthy links and deceptive websites.":
+            jump popad_done
+        "Enable adblock or disable pop-ups in your browser to block pop-ups.":
+            jump popad_done
+        "Enable Anti-malware and Anti-virus software to check for malware.":
+            jump popad_done
+        "Both a and c.":
+            jump popad_done
+        "None of the above.":
+            jump popad_done
+        "Both b and d.":
+            jump popad_done
+        "All of the above.":
+            jump popad_allabove
 
-    kyle "Hmmm! This could be a great save from a spam. Well, what should I do to avoid such pop up ads which seem to be a scam, so that my PC should not be at a risk?"
 
-    "What should X Æ A-12 do to avoid pop up ad scams and the installation of unwanted applications on his PC?"
+    label popad_allabove:
+        "The best ways to avoid pop-ups are to disable them on your browser. Having an anti-virus software will help protect your computer from suspicious downloads as well, and staying on trustworthy websites will keep you even safer."
 
-    #menu:
-    #    "Do not click on suspicious and untrustworthy links and deceptive websites."
-    #    "Enable adblock to block pop-ups when the suspicious ads are noticed."
-    #    "Regularly monitor the applications installed on your computer."
-    #    "Enable Anti-malware and Anti-virus software to check for malware."
-
+    "Having had a long week of school, Kyle is ready for the weekend. He goes to bed thinking about how much he learned about malware and security."
 
 
     # This ends the game.
