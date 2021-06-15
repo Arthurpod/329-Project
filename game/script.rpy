@@ -301,12 +301,16 @@ label start:
     hide alice
     scene bg tosubway
 
+    alice "Hey did you hear about the new Xbox series X coming out?!"
+
+    kyle "Yes! I'm planning to get one but I'm flat out broke right now, and my parent's don't give me an allowance."
+
     show alice enthusiastic
-    alice "Hey have you thought about working this summer? Maybe your dad could give you a job."
+    alice "Have you thought about working this summer? Maybe your dad could give you a job."
     hide alice enthusiastic
 
     show alice
-    kyle "Oh no I haven't really thought about it."
+    kyle "Oh no I haven't really thought about it. Dad's all business though, so I don't think he'll have a job for me."
 
     "Kyle and Alice pass a bus stop with a poster"
     hide alice
