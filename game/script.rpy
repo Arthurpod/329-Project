@@ -195,7 +195,6 @@ label start:
     "Phishing emails pretend to be from a legitimate source, such as google, or your bank. They try to trick into thinking that you need to log in, but they provide a fake URL that will steal your info if you try to log in, or will download malware to your device."
     "You can test out this knowledge in Google's {a=https://phishingquiz.withgoogle.com/}phishing email quiz{/q}."
 
-    hide teacher
 
     show email phishing1:
         xalign 0.5
@@ -291,18 +290,18 @@ label start:
 
     kyle "Hey Rei, do you wanna grab Subway for lunch?"
 
+    show rei
     rei "Sure! I'm starving."
-
+    hide rei
     scene bg tosubway
 
-    show kyle base at left
-    show rei base at right
+    show rei enthusiastic
     rei "Hey have you thought about working this summer? Maybe your dad could give you a job."
 
     kyle "Oh no I haven't really thought about it."
 
     "Kyle and Rei pass a bus stop with a poster"
-
+    hide rei enthusiastic
     show qr poster:
         xalign 0.5
         yalign 0.5
@@ -315,6 +314,7 @@ label start:
 
     kyle "I can't lie this is giving me serious sus vibes. Looks like they spelt 'experience' and 'eligibility' wrong and there's no description of the job."
 
+    show rei ps5
     rei "Really? You seemed like you really wanted some money for a new Xbox series X."
 
     "Click the link?"
@@ -328,13 +328,17 @@ label start:
         $ qrlink = 1
         "As Kyle’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
         kyle "What’s going on, my phone is frozen! I can’t do anything."
+        hide rei ps5
+        show rei hope
         rei "Wait for sometime bro, hopefully it gets back to normal."
         kyle "RATS!!!!! All my apps, and pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
         "Kyle rips the sign down and throws it in the trash, so that nobody else gets tricked by this suspicious QR code."
+        hide rei hope
         jump qrlink_done
 
     label qrlink_no:
         $ qrlink = 0
+        hide rei ps5
         kyle "This link is probably a virus. It doesn’t even use a common domain like .ca, .net, or .org. I’m not clicking this link."
         jump qrlink_done
 
@@ -348,7 +352,9 @@ label start:
 
     scene bg classroom with dissolve
 
+    show talking3
     jeff "Alright, class. We’re going to run through a research assignment. I’m going to need everyone to download MichaelScott Word. Open up your laptops and search ‘MichaelScott Word download’ in SpaceNet and click the first link."
+    hide talking3
 
     "Kyle follows instructions. An execution downloads and he opens it. The file asks,"
     "Which folder location would you like to save this application to?"
@@ -368,16 +374,19 @@ label foldertry:
     label folder1:
         $ folder = 1
         "USER VIOLATION ERROR: User does not have permission to write to this folder"
+        show talking
         jeff "Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives read permissions to all students."
         jeff "Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
+        hide talking
         jump foldertry
 
     label folder2:
         $ folder = 2
         "Software download complete, run MichaelScott Word?"
+        show happy
         jeff "Mr. Bezos says, “Class, make sure you select the proper folder. Remember some folders don’t give full read, write, and execute permissions. For example, the /harambee/admin/ folder only gives"
         jeff "read permissions to all students. Your specific folder however gives you full permission rights. Meaning you can read, write and execute all files in your own folder."
-
+        hide happy
 
     jeff "Alright students, you’re going to be researching how crypto works and writing about it in…"
 
@@ -385,6 +394,7 @@ label foldertry:
 
     kyle "Alright! Finally time to go home."
 
+    show usb
     "As he walks home, Kyle finds a USB stick on the  sidewalk"
 
     kyle "Sweet!"
@@ -396,6 +406,7 @@ label foldertry:
             jump leaveUSB
 
     label pickUSB:
+        hide usb
         scene bg bedroom with dissolve
         "As soon as he arrives at home, Kyle plugs the USB into his SpaceBook Pro."
         "There is a file on the USB drive."
@@ -413,6 +424,7 @@ label foldertry:
                 jump usb_done
     label leaveUSB:
         $ usbFlag = 2
+        hide usb
         kyle "I don't need a shady ground USB. It may have a virus on it. Why would somebody drop a perfectly good USB that's that big?"
         "Kyle arrives at home."
         scene bg bedroom with dissolve
@@ -426,12 +438,20 @@ label foldertry:
 
     scene bg classroom with dissolve
 
-    show teacher base with dissolve
+    show teacher
     jeff "Good morning class! Today I want to teach you how to encrypt messages. Have any of you seen The Martian?"
+    hide teacher
+    show teacher1
     jeff "In one scene, Matt Damon communicates with NASA using ASCII symbols. We are going to do the same by converting your names to binary."
+    hide teacher1
+    show teacher
     jeff "Binary uses digits called bits which can either be a 0 or a 1. Each letter in your name will be converted to Hexadecimal or Hex code according to the chart I pass out."
     jeff "Hex numbers can then be convereted into 4 bits each, so every letter in your name will be converted to 8 bits of binary."
+    hide teacher
+    show talking2
     jeff "You can convert hex to binary manually, or by using a website to calculate your math for you."
+    hide talking2
+
     "The Hex number system is like our decimal system that we use, only there are extra digits A B C D E and F to represent the numbers 10, 11, 12, 13, 14, and 15."
     "In binary there are only the numbers 1 and 0 but which position they are in will tell you which power of 2 they represent."
     "You can convert between Hex and Binary here {a=https://www.rapidtables.com/convert/number/hex-to-binary.html}at this link{/a}."
@@ -447,18 +467,26 @@ label foldertry:
 
     hide hex chart
 
+    show happy
     jeff "Well done class! You've completed your introduction to ASCII characters. Now, we are going to take a step further and add an alement of encryption."
+    hide happy
+    show talking2
     jeff "To do this we will use the following binary number as a key: 01001011."
     jeff "Now, for each bit in your binary name and in the key, convert the two bits in each place into a new bit using an XOR operation. This table will show you how it works."
-
     show xor chart:
         yalign 0
         xalign 0.5
 
+    hide talking2
+    hide xorchart
+    show talking
+        show xor chart:
+            yalign 0
+            xalign 0.5
     jeff "XOR means Exclusive Or, which is a type of operation where you consider 2 values, and if at least 1 of them equals 1, then the equation equals 1"
     jeff "But Exclusive Or also has an extra rule, if both values are equal to 1, then the expression is equal to 0."
     jeff "So if the first bit in your binary name is 1 and the first bit in the key is 0, then the first bit of the new number you are generating, will be a 1."
-
+    hide talking
     label ascii_start:
     "Using Kyle in binary, and the key that Mr. Bezos provided, XOR every bit in each number to create a new number.{p}Kyle: 01001011 01111001 01101100 01100101 {p}Key:  01001011 01001011 01001011 01001011"
 
@@ -494,8 +522,9 @@ label foldertry:
     label ascii_done:
     hide xor chart
 
+    show happy
     jeff "Great job, class. You have no encrypted your names."
-
+    hide happy
     scene bg bedroom with dissolve
 
     "After school, Kyle goes home. He decides to finish his homework that his math teacher Mr. Gates assigned. While trying to find resources to help him understand the subject, the math website he is on gives him a pop-up ad."
