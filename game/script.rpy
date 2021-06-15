@@ -297,11 +297,13 @@ label start:
 
     show rei enthusiastic
     rei "Hey have you thought about working this summer? Maybe your dad could give you a job."
+    hide rei enthusiastic
 
+    show rei
     kyle "Oh no I haven't really thought about it."
 
     "Kyle and Rei pass a bus stop with a poster"
-    hide rei enthusiastic
+    hide rei
     show qr poster:
         xalign 0.5
         yalign 0.5
@@ -314,7 +316,6 @@ label start:
 
     kyle "I can't lie this is giving me serious sus vibes. Looks like they spelt 'experience' and 'eligibility' wrong and there's no description of the job."
 
-    show rei ps5
     rei "Really? You seemed like you really wanted some money for a new Xbox series X."
 
     "Click the link?"
@@ -326,9 +327,9 @@ label start:
 
     label qrlink_yes:
         $ qrlink = 1
+        hide qr poster
         "As Kyle’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
         kyle "What’s going on, my phone is frozen! I can’t do anything."
-        hide rei ps5
         show rei hope
         rei "Wait for sometime bro, hopefully it gets back to normal."
         kyle "RATS!!!!! All my apps, and pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
@@ -338,7 +339,6 @@ label start:
 
     label qrlink_no:
         $ qrlink = 0
-        hide rei ps5
         kyle "This link is probably a virus. It doesn’t even use a common domain like .ca, .net, or .org. I’m not clicking this link."
         jump qrlink_done
 
@@ -395,6 +395,8 @@ label foldertry:
     kyle "Alright! Finally time to go home."
 
     show usb
+        xalign 0.5
+        yalign 0.5
     "As he walks home, Kyle finds a USB stick on the  sidewalk"
 
     kyle "Sweet!"
@@ -478,11 +480,11 @@ label foldertry:
         xalign 0.5
 
     hide talking2
-    hide xorchart
+    hide xor chart
     show talking
-        show xor chart:
-            yalign 0
-            xalign 0.5
+    show xor chart:
+        yalign 0
+        xalign 0.5
     jeff "XOR means Exclusive Or, which is a type of operation where you consider 2 values, and if at least 1 of them equals 1, then the equation equals 1"
     jeff "But Exclusive Or also has an extra rule, if both values are equal to 1, then the expression is equal to 0."
     jeff "So if the first bit in your binary name is 1 and the first bit in the key is 0, then the first bit of the new number you are generating, will be a 1."
@@ -613,7 +615,7 @@ label foldertry:
     "You can check your password strength using websites like https://howsecureismypassword.net/"
 
     kyle "I remember getting some weird emails."
-    if phishing0 = 0:
+    if phishing  = 0:
         show email phishing1:
             xalign 0.5
             yalign 0.0

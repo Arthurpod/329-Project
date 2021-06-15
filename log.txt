@@ -1,13 +1,13 @@
-Mon Jun 14 21:10:32 2021
+Mon Jun 14 21:50:08 2021
 Windows-10-10.0.19041
 Ren'Py 7.4.4.1439
  
 
-Bootstrap to the start of init.init took 0.08s
+Bootstrap to the start of init.init took 0.07s
 Early init took 0.00s
 Loader init took 0.02s
 Loading error handling took 0.02s
-Loading script took 0.20s
+Loading script took 0.11s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
@@ -15,7 +15,6 @@ Running init code took 0.05s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\Jon\\AppData\\Roaming/RenPy/backups\\329MuskProject':
 Dump and make backups. took 0.05s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
@@ -27,15 +26,15 @@ Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.06s
+Load screen analysis took 0.02s
+Analyze screens took 0.00s
+Save screen analysis took 0.00s
 Prepare screens took 0.05s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.07s
+Interface start took 0.08s
 
 Initializing gl renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -62,4 +61,20 @@ Texture testing:
 Screen sizes: virtual=(1280, 720) physical=(1589, 894) drawable=(1589, 894)
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 1.24128484726s
+Total time until interface ready: 1.12898111343s
+
+Full traceback:
+  File "game/script.rpy", line 616, in script
+    if phishing0 = 0:
+  File "renpy/ast.py", line 1852, in execute
+    if renpy.python.py_eval(condition):
+  File "renpy/python.py", line 2247, in py_eval
+    code = py_compile(code, 'eval')
+  File "renpy/python.py", line 835, in py_compile
+    raise e
+SyntaxError: invalid syntax (script.rpy, line 616)
+
+While running game code:
+  File "game/script.rpy", line 616, in script
+    if phishing0 = 0:
+SyntaxError: invalid syntax (script.rpy, line 616)

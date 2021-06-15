@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 178: expected statement.
-    ide talking
-               ^
+File "game/script.rpy", line 483: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    show xor chart:
+    ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Mon Jun 14 21:01:49 2021
+Mon Jun 14 21:35:25 2021
