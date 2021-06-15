@@ -163,7 +163,7 @@ label start:
     scene bg classroom with dissolve
 
     show talking2
-    jeff "Good morning class. Before we start today's lesson I want everyone to log in to their Harambee high CBE accounts."
+    jeff "Good morning class. Before we start today's cyber security lesson I want everyone to log in to their Harambee high CBE accounts."
     jeff "Our School's IT staff just implemented a new security protocol that requires all students to log in to their accounts with two-factor authentication."
     jeff "What this means is when you log in to your account on the school websites, you will have to input a code as well as your username and password. The code will come from an app on your phone which you will connect to your account."
 
@@ -402,8 +402,6 @@ label foldertry:
 
     play sound "audio/school-bell-sound.mp3"
 
-
-
     kyle "Alright! Finally time to go home."
 
     kyle "Hey Alice do you want to want to go home together?"
@@ -604,31 +602,41 @@ label foldertry:
         jump popad_done
 
     label popad_done:
-    "What would be a good way to avoid being harmed by pop-up ads?"
-    menu:
-        "Do not click on suspicious and untrustworthy links and deceptive websites.":
-            jump popad_done
-        "Enable adblock or disable pop-ups in your browser to block pop-ups.":
-            jump popad_done
-        "Enable Anti-malware and Anti-virus software to check for malware.":
-            jump popad_done
-        "Both a and c.":
-            jump popad_done
-        "None of the above.":
-            jump popad_done
-        "Both b and d.":
-            jump popad_done
-        "All of the above.":
-            jump popad_allabove
+    hide pop ad
+    #"What would be a good way to avoid being harmed by pop-up ads?"
+    #menu:
+    #    "Do not click on suspicious and untrustworthy links and deceptive websites.":
+    #        jump popad_done
+    #    "Enable adblock or disable pop-ups in your browser to block pop-ups.":
+    #        jump popad_done
+    #    "Enable Anti-malware and Anti-virus software to check for malware.":
+    #        jump popad_done
+    #    "Both a and c.":
+    #        jump popad_done
+    #    "None of the above.":
+    #        jump popad_done
+    #    "Both b and d.":
+    #        jump popad_done
+    #    "All of the above.":
+    #        jump popad_allabove
 
 
-    label popad_allabove:
-        "The best ways to avoid pop-ups are to disable them on your browser. Having an anti-virus software will help protect your computer from suspicious downloads as well, and staying on trustworthy websites will keep you even safer."
+    #label popad_allabove:
+    #    "The best ways to avoid pop-ups are to disable them on your browser. Having an anti-virus software will help protect your computer from suspicious downloads as well, and staying on trustworthy websites will keep you even safer."
+
+    "Having had a long week of school, Kyle is ready for the weekend."
+    "Before he goes to bed he thinks about his life since he got his new phone."
+    "In that space of time he has learned a lot about security and malware."
+    "But has he really been applying what he was learning? Did he behave with cyber security in mind he wonders."
+    "With all these thoughts in mind Kyle has a weird dream that night."
+
 
     show bg black with dissolve
-    "Having had a long week of school, Kyle is ready for the weekend. He goes to bed thinking about how much he learned about malware and security."
+    # "Having had a long week of school, Kyle is ready for the weekend. He goes to bed thinking about how much he learned about malware and security."
 
     # Dream/Ending section
+
+
 
     stop music fadeout 1.0
     show bg black with dissolve
@@ -639,22 +647,25 @@ label foldertry:
     $ overall_score = 0
 
     if q1 == 1:
+        $ overall_score += 5
         kyle "I chose 'Password1' for my new Spacenet account password."
         kyle "Sure it's easy to remember but this password is not at all secure."
         kyle "I should definitely change it when I get the chance."
 
     if q1 == 2:
+        $ overall_score += 5
         kyle "I chose 'P@55w0rd' for my new Spacenet account password."
         kyle "I basically chose the word 'Password' but in the l33t spelling, giving it a symbol and some numbers."
         kyle "While this password is easy to remember it's unsecure since it is too short and is based on the word 'Password.'"
         kyle "I should definitely change it when I get the chance."
 
     if q1 == 3:
+        $ overall_score += 1
         kyle "I chose 'mKxA3a12!' for my new Spacenet account password."
         kyle "This password is secure but it's hard to memorize. But it might not be much of a problem"
         kyle "I could store this password by writing it down somewhere or by using a password manager."
         kyle "But then I also would have to make sure that the password manager is secure and I would need to remember that password for the manager itself."
-        kyle "maybe I could change my Spacenet account password later on to one that I can remember easier."
+        kyle "maybe I'll change my Spacenet account password later on to one that I can remember easier."
 
     if q1 == 4:
         kyle "I chose 'Musky@Melon05' for my new Spacenet account password."
@@ -665,7 +676,8 @@ label foldertry:
     "You can check your password strength using websites like https://howsecureismypassword.net/"
 
     kyle "I remember getting some weird emails."
-    if phishing  = 0:
+    if phishing1 == 0:
+        $ overall_score += 5
         show email phishing1:
             xalign 0.5
             yalign 0.0
@@ -674,7 +686,8 @@ label foldertry:
         kyle "I shouldn't click on the link."
         hide email phishing1
 
-    if phishing2 = 0:
+    if phishing2 == 0:
+        $ overall_score += 5
         show email phishing2:
             xalign 0.5
             yalign 0.0
@@ -682,7 +695,8 @@ label foldertry:
         kyle "The URL has a weird domain. The word Fax isn't even spelled right."
         hide email phishing2
 
-    if phishing3 = 0:
+    if phishing3 == 0:
+        $ overall_score += 5
         show email phishing3:
             xalign 0.5
             yalign 0.0
@@ -691,7 +705,8 @@ label foldertry:
         kyle "As tempting as it is I should not click on the link."
         hide email phishing3
 
-    if phishing4 = 1:
+    if phishing4 == 1:
+        $ overall_score += 1
         show email legit1:
             xalign 0.5
             yalign 0.0
@@ -705,29 +720,65 @@ label foldertry:
     "Phishing emails and scams will sometimes have spelling errors."
 
     kyle "With Alice I remember we ran across a poster on the way to subway."
+    show qr poster:
+        xalign 0.5
+        yalign 0.0
 
-    if qrlink = 1:
-        show qr poster:
-            xalign 0.5
-            yalign 0.0
+    if qrlink == 1:
+        $ overall_score += 5
+
         kyle "I remember that my phone froze when I followed the link the QR code gave me. That was definitely the wrong choice"
 
     "QR codes often can hide malicious links. Do not scan a QR code from an untrusted source."
     "If possible use a QR scanner that does not automatically send you to the link without your confirmation first. That way you can see if the link can be trusted yourself."
+    hide qr poster
 
-    kyle "I passed by a USB on the way home from school that one time. Pretty decent size one too."
+    kyle "I passed by a USB on the way home from school that one time. Pretty decent storage size too."
+    show usb:
+        xalign 0.5
+        yalign 0.5
 
-    if usbFlag = 0:
+    if usbFlag == 0:
+        $ overall_score += 5
         kyle "I made the wrong decision picking up that USB and plugging it in to my PC."
 
-    "Malware is harmful software for example viruses. One way malware spreads is through storage and media like USBs and CDs."
+    "Malware is harmful software. One way malware spreads is sharing files through storage and media like USBs and CDs."
+    "One type of malware are keyloggers. They record keystrokes on your device, sending personal information you type like passwords to a remote source."
+    "It can be very hard to dectect viruses."
+    "They are hard to tell apart from non-harmful software."
+    "Viruses have characterstics called signatures which can be used to detect viruses. However some viruses have the ability to change their code to avoid being recognized."
+    "Another way to detect viruses is by behaviour rather than signatures. Looking at how your system behaves, seeing if anything matching how a certain kind of virus works"
 
+    hide usb
 
+    kyle "Then there was that pop up ad I encountered just before I fell asleep."
+    show pop ad
 
+    if popadFlag == 1:
+        $ overall_score += 5
+        kyle "I shouldn't have clicked on it, that wasn't a fun experience."
 
+    "A good way to defend yourself from pop up ads and malware that comes from them is to..."
+    "1. Do not click on suspicious and untrustworthy links and deceptive websites."
+    "2. Enable adblock or disable pop-ups in your browser to block pop-ups."
+    "3. Enable Anti-malware and Anti-virus software to check for malware."
 
+    kyle "Now that I think about it the things that happened to me these few days are pretty common."
+    kyle "It's pretty important that I am careful when I go online in my everyday life."
+    kyle "Im going to start paying more attention to Mr. Bezos' class."
 
-    "..."
+    hide pop ad
+    stop music fadeout 1.0
+    play music "audio/bday.mp3"
+    if overall_score == 0:
+        "Your Score: S Rank - You have a perfect score!"
+    elif overall_score <= 10:
+        "Your Score: A Rank - Good Job!"
+    elif overall_score <= 20:
+        "Your Score: B Rank "
+    else:
+        "Your Score: C Rank"
+
 
 
 

@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 403: expected simple expression
-    stop music fadeout
-                      ^
-
-File "game/script.rpy", line 409: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
-    xalign 0.5
-    ^
+File "game/script.rpy", line 750: expected statement.
+    overall_score = overall_score + 5
+                  ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Mon Jun 14 23:16:59 2021
+Tue Jun 15 05:04:05 2021
