@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-The label ascii_1 is defined twice, at
-  File "game/script.rpy", line 454 and
-  File "game/script.rpy", line 457.
-
-The label ascii_1 is defined twice, at
-  File "game/script.rpy", line 457 and
-  File "game/script.rpy", line 460.
-
-The label ascii_1 is defined twice, at
-  File "game/script.rpy", line 460 and
-  File "game/script.rpy", line 463.
+File "game/script.rpy", line 178: expected statement.
+    ide talking
+               ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Sun Jun 13 21:25:20 2021
+Mon Jun 14 21:01:49 2021

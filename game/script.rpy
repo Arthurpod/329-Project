@@ -9,13 +9,13 @@ define grimes = Character ("Mom", who_color="fce840", what_color="878785")
 
 define jeff = Character ("Mr. Bezos", who_color="eb6610", what_color="cecece")
 
-define pepe = Character ("Pepe", who_color="0520bf", what_color="037c10")
+### define pepe = Character ("Pepe", who_color="0520bf", what_color="037c10")
 
 define web = Character("", kind = nvl)
 
 define poster = Character("", kind = nvl)
 
-define tim = Character("Tim", who_color="fcfcfc", what_color="fcfcfc")
+define rei = Character("Rei", who_color="ff7326", what_color="008DC7")
 # The game starts here.
 
 label start:
@@ -30,22 +30,29 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show kyle base
+    ### show kyle base
 
     # These display lines of dialogue.
 
     "It’s May 30 2021 and Kyle Musk just woke up in dad’s $41M mansion."
     "Enter his mother."
-    show kyle base at left with move
-    show mom happy at right with move
+    ### show kyle base at left with move
+    show mom
 
     grimes "Good morning Kyle. Happy 16th birthday!"
 
     kyle "Thanks mom! Where is dad?"
 
-    show mom base
+    hide mom
+    show mom talk
     grimes "I'm sorry, darling, your father is away on a business meeting"
+
+    hide mom talk
+    show mom talk2
     grimes "He said it was very important, he's going to revolutionize DogeCoin today."
+
+    hide mom talk2
+    show mom happy
     grimes "But we got you this birthday present!"
     "She hands Kyle a wrapped box."
 
@@ -53,8 +60,11 @@ label start:
     "He opens the gift."
     kyle "Wow, a SpacePhone X! I wish dad were here too, but I guess DogeCoin is pretty important."
 
+    hide mom happy
+    show mom
     grimes "You're welcome sweetheart, I hope you like your new phone! Why don't you turn it on and set up your account?"
-    hide mom base
+    hide mom
+    hide kyle base
 
     "Kyle turns on his new SpacePhone X and is prompted to log in or create a new SpaceNet account to access his phone with."
     "After entering the username MarsmanKyle, Kyle needs to enter a password."
@@ -146,25 +156,31 @@ label start:
     "The next day, Kyle goes to his school, Harambee High."
 
     scene bg classroom with dissolve
-    show teacher explaining
 
+    show talking2
     jeff "Good morning class. Before we start today's lesson I want everyone to log in to their Harambee high CBE accounts."
     jeff "Our School's IT staff just implemented a new security protocol that requires all students to log in to their accounts with two-factor authentication."
     jeff "What this means is when you log in to your account on the school websites, you will have to input a code as well as your username and password. The code will come from an app on your phone which you will connect to your account."
 
-    show rei base at right
-    pepe "Why are we doing this Mr. Bezos? This is just a big inconvenience!"
+    show rei at right
+    rei "Why are we doing this Mr. Bezos? This is just a big inconvenience!"
 
-    jeff "Because this way, Pepe, even if someone has managed to get your ID and password,{p}they still can't log in to your school account."
+    hide talking2
+    show talking
+    jeff "Because this way, Rei, even if someone has managed to get your ID and password,{p}they still can't log in to your school account."
     jeff "They don't have access to your phone, so they won't be able to get a code from the authenticator app which is required to log in."
     jeff "This will help protect our system from cybercriminals."
 
-    pepe "I get it now, it's like an extra layer of difficulty that cybercriminals will have to deal with."
+    hide rei
+    show rei enthusiastic at right
+    rei "I get it now, it's like an extra layer of difficulty that cybercriminals will have to deal with."
 
+    hide talking
+    show teacher
     jeff "Exactly."
 
-    hide rei base
-
+    hide rei ethusiastic
+    hide teacher
     "Kyle opens up his SpaceBook Pro and opens up the Tesla browser to log in. The website shows a screen reading:"
 
     web "Welcome to Harambe High CBE Account Prefences.\nYou will be adding 2FA to your Harambe High CBE account. Please take the following steps:"
@@ -179,7 +195,7 @@ label start:
     "Phishing emails pretend to be from a legitimate source, such as google, or your bank. They try to trick into thinking that you need to log in, but they provide a fake URL that will steal your info if you try to log in, or will download malware to your device."
     "You can test out this knowledge in Google's {a=https://phishingquiz.withgoogle.com/}phishing email quiz{/q}."
 
-    hide teacher talking
+    hide teacher
 
     show email phishing1:
         xalign 0.5
@@ -273,25 +289,25 @@ label start:
 
     "*Ding dong* class is over and it's now time for lunch"
 
-    kyle "Hey Tim, do you wanna grab Subway for lunch?"
+    kyle "Hey Rei, do you wanna grab Subway for lunch?"
 
-    tim "Sure! I'm starving."
+    rei "Sure! I'm starving."
 
     scene bg tosubway
 
     show kyle base at left
-    show tim base at right
-    tim "Hey have you thought about working this summer? Maybe your dad could give you a job."
+    show rei base at right
+    rei "Hey have you thought about working this summer? Maybe your dad could give you a job."
 
     kyle "Oh no I haven't really thought about it."
 
-    "Kyle and Tim pass a bus stop with a poster"
+    "Kyle and Rei pass a bus stop with a poster"
 
     show qr poster:
         xalign 0.5
         yalign 0.5
 
-    tim "Yo, look at this poster! Didn’t you turn 16 today? Happy birthday by the way. But hey, you should apply to this. Just scan the code with your new phone."
+    rei "Yo, look at this poster! Didn’t you turn 16 today? Happy birthday by the way. But hey, you should apply to this. Just scan the code with your new phone."
 
     kyle "Thanks! Yeah okay, I wonder what type of job this is. It doesn’t say much on the poster."
 
@@ -299,7 +315,7 @@ label start:
 
     kyle "I can't lie this is giving me serious sus vibes. Looks like they spelt 'experience' and 'eligibility' wrong and there's no description of the job."
 
-    tim "Really? You seemed like you really wanted some money for a new Xbox series X."
+    rei "Really? You seemed like you really wanted some money for a new Xbox series X."
 
     "Click the link?"
     menu:
@@ -312,7 +328,7 @@ label start:
         $ qrlink = 1
         "As Kyle’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
         kyle "What’s going on, my phone is frozen! I can’t do anything."
-        tim "Wait for sometime bro, hopefully it gets back to normal."
+        rei "Wait for sometime bro, hopefully it gets back to normal."
         kyle "RATS!!!!! All my apps, and pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
         "Kyle rips the sign down and throws it in the trash, so that nobody else gets tricked by this suspicious QR code."
         jump qrlink_done
@@ -607,7 +623,7 @@ label foldertry:
     "Make sure before clicking on links that they send you to legitimate trusted websites."
     "Phishing emails and scams will sometimes have spelling errors."
 
-    kyle "With Tim I remember we ran across a poster on the way to subway."
+    kyle "With Rei I remember we ran across a poster on the way to subway."
 
     if qrlink = 1:
         show qr poster:
@@ -621,7 +637,14 @@ label foldertry:
     kyle "I passed by a USB on the way home from school that one time. Pretty decent size one too."
 
     if usbFlag = 0:
-        kyle "I made the wrong decision picking up that usb"
+        kyle "I made the wrong decision picking up that USB and plugging it in to my PC."
+
+    "Malware is harmful software for example viruses. One way malware spreads is through storage and media like USBs and CDs."
+
+
+
+
+
 
     "..."
 
