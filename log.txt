@@ -1,22 +1,22 @@
-Mon Jun 14 23:42:05 2021
+Mon Jun 14 23:56:55 2021
 Windows-10-10.0.19041
 Ren'Py 7.4.4.1439
  
 
-Bootstrap to the start of init.init took 0.07s
+Bootstrap to the start of init.init took 0.08s
 Early init took 0.00s
 Loader init took 0.02s
 Loading error handling took 0.02s
-Loading script took 0.30s
+Loading script took 0.23s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
-Running init code took 0.06s
+Running init code took 0.05s
 Loading analysis data took 0.02s
 Analyze and compile ATL took 0.00s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Jon\\AppData\\Roaming/RenPy/backups\\329MuskProject':
-Dump and make backups. took 0.05s
+Dump and make backups. took 0.06s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.02s
@@ -35,7 +35,7 @@ Save pyanalysis. took 0.06s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.07s
+Interface start took 0.08s
 
 Initializing gl renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -59,45 +59,39 @@ Texture testing:
 - 512px textures work.
 - 1024px textures work.
 - 2048px textures work.
-Screen sizes: virtual=(1280, 720) physical=(1738, 977) drawable=(1738, 977)
+Screen sizes: virtual=(1280, 720) physical=(1733, 975) drawable=(1733, 975)
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 1.51788115501s
+Total time until interface ready: 1.330037117s
 
 Full traceback:
-  File "game/script.rpy", line 655, in script
-    kyle "I chose 'Musky@Melon05' for my new Spacenet account password."
-  File "renpy/ast.py", line 715, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "renpy/exports.py", line 1393, in say
-    who(what, *args, **kwargs)
-  File "renpy/character.py", line 1205, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "renpy/character.py", line 871, in do_display
-    **display_args)
-  File "renpy/character.py", line 621, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "renpy/ui.py", line 298, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "renpy/display/core.py", line 3101, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "renpy/display/core.py", line 3794, in interact_core
-    renpy.audio.audio.periodic()
-  File "renpy/audio/audio.py", line 1101, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "renpy/audio/audio.py", line 1079, in periodic_thread_main
-    periodic_pass()
-  File "renpy/audio/audio.py", line 1021, in periodic_pass
-    c.periodic()
-  File "renpy/audio/audio.py", line 487, in periodic
-    topf = load(self.file_prefix + filename + self.file_suffix)
-  File "renpy/audio/audio.py", line 69, in load
-    rv = renpy.loader.load(fn)
-  File "renpy/loader.py", line 798, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'audio/Decision.mp3'.
+  File "game/script.rpy", line 664, in script
+    if phishing  = 0:
+  File "renpy/ast.py", line 1852, in execute
+    if renpy.python.py_eval(condition):
+  File "renpy/python.py", line 2247, in py_eval
+    code = py_compile(code, 'eval')
+  File "renpy/python.py", line 835, in py_compile
+    raise e
+SyntaxError: invalid syntax (script.rpy, line 664)
 
 While running game code:
-  File "game/script.rpy", line 655, in script
-    kyle "I chose 'Musky@Melon05' for my new Spacenet account password."
-IOError: Couldn't find file 'audio/Decision.mp3'.
+  File "game/script.rpy", line 664, in script
+    if phishing  = 0:
+SyntaxError: invalid syntax (script.rpy, line 664)
+
+Full traceback:
+  File "game/script.rpy", line 664, in script
+    if phishing  = 0:
+  File "renpy/ast.py", line 1852, in execute
+    if renpy.python.py_eval(condition):
+  File "renpy/python.py", line 2247, in py_eval
+    code = py_compile(code, 'eval')
+  File "renpy/python.py", line 835, in py_compile
+    raise e
+SyntaxError: invalid syntax (script.rpy, line 664)
+
+While running game code:
+  File "game/script.rpy", line 664, in script
+    if phishing  = 0:
+SyntaxError: invalid syntax (script.rpy, line 664)

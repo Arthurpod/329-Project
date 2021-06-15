@@ -526,9 +526,10 @@ label foldertry:
     jeff "So if the first bit in your binary name is 1 and the first bit in the key is 0, then the first bit of the new number you are generating, will be a 1."
     hide talking
     label ascii_start:
-    "Using Kyle in binary, and the key that Mr. Bezos provided, XOR every bit in each number to create a new number.{p}Kyle: 01001011 01111001 01101100 01100101 {p}Key:  01001011 01001011 01001011 01001011"
+
 
     menu:
+        "Using Kyle in binary, and the key that Mr. Bezos provided, XOR every bit in each number to create a new number.{p}Kyle: 01001011 01111001 01101100 01100101 {p}Key:  01001011 01001011 01001011 01001011"
         "00000000 00010000 00000110 00001110":
             jump ascii_1
         "11111111 11101111 11111001 11110001":
