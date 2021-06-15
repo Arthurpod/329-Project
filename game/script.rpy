@@ -15,7 +15,7 @@ define web = Character("", kind = nvl)
 
 define poster = Character("", kind = nvl)
 
-define rei = Character("Rei", who_color="ff7326", what_color="008DC7")
+define alice = Character("Alice", who_color="ff7326", what_color="008DC7")
 # The game starts here.
 
 label start:
@@ -25,6 +25,8 @@ label start:
     # images directory to show it.
 
     scene bg bedroom
+
+    play music "audio/bday.mp3"
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -66,6 +68,7 @@ label start:
     hide mom
     hide kyle base
 
+    play sound "audio/Samsung_Startup_Sound.mp3"
     "Kyle turns on his new SpacePhone X and is prompted to log in or create a new SpaceNet account to access his phone with."
     "After entering the username MarsmanKyle, Kyle needs to enter a password."
     kyle "Alright, I've narrowed it down to 4 passwords, now I just need to figure out which one is best"
@@ -152,9 +155,11 @@ label start:
     kyle "It's getting late, I should probably get to bed now"
 
     scene bg black with dissolve
+    stop music fadeout 1.0
 
     "The next day, Kyle goes to his school, Harambee High."
 
+    play music "audio/3.mp3"
     scene bg classroom with dissolve
 
     show talking2
@@ -162,24 +167,24 @@ label start:
     jeff "Our School's IT staff just implemented a new security protocol that requires all students to log in to their accounts with two-factor authentication."
     jeff "What this means is when you log in to your account on the school websites, you will have to input a code as well as your username and password. The code will come from an app on your phone which you will connect to your account."
 
-    show rei at right
-    rei "Why are we doing this Mr. Bezos? This is just a big inconvenience!"
+    show alice at right
+    alice "Why are we doing this Mr. Bezos? This is just a big inconvenience!"
 
     hide talking2
     show talking
-    jeff "Because this way, Rei, even if someone has managed to get your ID and password,{p}they still can't log in to your school account."
+    jeff "Because this way, Alice, even if someone has managed to get your ID and password,{p}they still can't log in to your school account."
     jeff "They don't have access to your phone, so they won't be able to get a code from the authenticator app which is required to log in."
     jeff "This will help protect our system from cybercriminals."
 
-    hide rei
-    show rei enthusiastic at right
-    rei "I get it now, it's like an extra layer of difficulty that cybercriminals will have to deal with."
+    hide alice
+    show alice enthusiastic at right
+    alice "I get it now, it's like an extra layer of difficulty that cybercriminals will have to deal with."
 
     hide talking
     show teacher
     jeff "Exactly."
 
-    hide rei ethusiastic
+    hide alice ethusiastic
     hide teacher
     "Kyle opens up his SpaceBook Pro and opens up the Tesla browser to log in. The website shows a screen reading:"
 
@@ -286,29 +291,30 @@ label start:
 
     scene bg classroom
 
+    play sound "audio/school-bell-sound.mp3"
     "*Ding dong* class is over and it's now time for lunch"
 
-    kyle "Hey Rei, do you wanna grab Subway for lunch?"
+    kyle "Hey Alice, do you wanna grab Subway for lunch?"
 
-    show rei
-    rei "Sure! I'm starving."
-    hide rei
+    show alice
+    alice "Sure! I'm starving."
+    hide alice
     scene bg tosubway
 
-    show rei enthusiastic
-    rei "Hey have you thought about working this summer? Maybe your dad could give you a job."
-    hide rei enthusiastic
+    show alice enthusiastic
+    alice "Hey have you thought about working this summer? Maybe your dad could give you a job."
+    hide alice enthusiastic
 
-    show rei
+    show alice
     kyle "Oh no I haven't really thought about it."
 
-    "Kyle and Rei pass a bus stop with a poster"
-    hide rei
+    "Kyle and Alice pass a bus stop with a poster"
+    hide alice
     show qr poster:
         xalign 0.5
         yalign 0.5
 
-    rei "Yo, look at this poster! Didn’t you turn 16 today? Happy birthday by the way. But hey, you should apply to this. Just scan the code with your new phone."
+    alice "Yo, look at this poster! Didn’t you turn 16 today? Happy birthday by the way. But hey, you should apply to this. Just scan the code with your new phone."
 
     kyle "Thanks! Yeah okay, I wonder what type of job this is. It doesn’t say much on the poster."
 
@@ -316,7 +322,7 @@ label start:
 
     kyle "I can't lie this is giving me serious sus vibes. Looks like they spelt 'experience' and 'eligibility' wrong and there's no description of the job."
 
-    rei "Really? You seemed like you really wanted some money for a new Xbox series X."
+    alice "Really? You seemed like you really wanted some money for a new Xbox series X."
 
     "Click the link?"
     menu:
@@ -330,11 +336,11 @@ label start:
         hide qr poster
         "As Kyle’s phone searches for the URL, his browser closes itself automatically, then it just freezes"
         kyle "What’s going on, my phone is frozen! I can’t do anything."
-        show rei hope
-        rei "Wait for sometime bro, hopefully it gets back to normal."
+        show alice hope
+        alice "Wait for sometime bro, hopefully it gets back to normal."
         kyle "RATS!!!!! All my apps, and pictures are deleted, it’s even asking me to sign in to my SpaceNet account again! Aw man, I shouldn’t have followed that URL!"
         "Kyle rips the sign down and throws it in the trash, so that nobody else gets tricked by this suspicious QR code."
-        hide rei hope
+        hide alice hope
         jump qrlink_done
 
     label qrlink_no:
@@ -390,14 +396,42 @@ label foldertry:
 
     jeff "Alright students, you’re going to be researching how crypto works and writing about it in…"
 
-    scene bg tosubway with dissolve
+    play sound "audio/school-bell-sound.mp3"
+
+
 
     kyle "Alright! Finally time to go home."
 
-    show usb
+    kyle "Hey Alice do you want to want to go home together?"
+
+    show alice
+
+    alice "Sorry I can't today. I've got club activities with Bob and Eve."
+
+    kyle "Dang ok. Well say hi to Bob for me. I'll see you tomorrow"
+
+    hide alice
+    show alice enthusiastic
+
+    alice "For sure, see ya tomorrow Kyle!."
+
+    hide alice enthusiastic
+
+    stop music fadeout 1.0
+    scene bg tosubway with dissolve
+
+    play music "audio/1.mp3"
+    kyle "Ugh I have so much homework Mr. Besos doesn't have any mercy."
+
+    kyle "I can't believe he also gave us a research project about cryptography."
+    kyle "It is kinda cool how the ancient Greeks used it to code their messages though."
+
+
+    "As he walks home, Kyle finds a USB stick on the  sidewalk"
+
+    show usb:
         xalign 0.5
         yalign 0.5
-    "As he walks home, Kyle finds a USB stick on the  sidewalk"
 
     kyle "Sweet!"
 
@@ -435,10 +469,12 @@ label foldertry:
     label usb_done:
 
     scene bg black with dissolve
+    stop music fadeout 1.0
 
     "Kyle prepares for the next day."
 
     scene bg classroom with dissolve
+    play music "audio/3.mp3"
 
     show teacher
     jeff "Good morning class! Today I want to teach you how to encrypt messages. Have any of you seen The Martian?"
@@ -527,7 +563,12 @@ label foldertry:
     show happy
     jeff "Great job, class. You have no encrypted your names."
     hide happy
+
+    stop music fadeout 1.0
+    scene bg black with dissolve
     scene bg bedroom with dissolve
+
+    play music "audio/1.mp3"
 
     "After school, Kyle goes home. He decides to finish his homework that his math teacher Mr. Gates assigned. While trying to find resources to help him understand the subject, the math website he is on gives him a pop-up ad."
     show pop ad
@@ -584,8 +625,12 @@ label foldertry:
 
     # Dream/Ending section
 
+    stop music fadeout 1.0
+    show bg black with dissolve
     show dream with dissolve
-    show shadow kyle
+    play music "audio/Decision.mp3"
+
+    ### show shadow kyle
     $ overall_score = 0
 
     if q1 == 1:
@@ -654,7 +699,7 @@ label foldertry:
     "Make sure before clicking on links that they send you to legitimate trusted websites."
     "Phishing emails and scams will sometimes have spelling errors."
 
-    kyle "With Rei I remember we ran across a poster on the way to subway."
+    kyle "With Alice I remember we ran across a poster on the way to subway."
 
     if qrlink = 1:
         show qr poster:

@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 483: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
-    show xor chart:
+File "game/script.rpy", line 403: expected simple expression
+    stop music fadeout
+                      ^
+
+File "game/script.rpy", line 409: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    xalign 0.5
     ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Mon Jun 14 21:35:25 2021
+Mon Jun 14 23:16:59 2021
